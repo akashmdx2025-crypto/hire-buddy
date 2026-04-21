@@ -1,0 +1,6 @@
+{
+  "name": "HireReady AI",
+  "description": "AI-powered interview preparation coach that analyzes job descriptions and helps candidates prepare with tailored questions, real-time evaluation, and RAG-powered feedback.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["AI-powered interview prep", "RAG JD analysis", "Mock interview system"]
+}

@@ -2,10 +2,10 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Question, EvaluationResult } from '../../lib/types';
+import { Question, EvaluationResult } from '@/lib/types.ts';
 import { Loader2, Plus, ArrowRight, BrainCircuit, Star, BarChart4, MessageSquareQuote } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button.tsx';
+import { Badge } from '@/components/ui/badge.tsx';
 import AnswerEvaluator from './AnswerEvaluator';
 import { toast } from 'sonner';
 

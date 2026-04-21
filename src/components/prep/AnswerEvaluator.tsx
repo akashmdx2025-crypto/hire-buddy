@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
-import { Question, EvaluationResult } from '../../lib/types';
-import { Button } from '@/components/ui/button';
+import { Question, EvaluationResult } from '@/lib/types.ts';
+import { Button } from '@/components/ui/button.tsx';
 import { X, Send, Loader2, Trophy, AlertTriangle, CheckCircle2, ChevronDown, RotateCcw } from 'lucide-react';
 import { toast } from 'sonner';
 

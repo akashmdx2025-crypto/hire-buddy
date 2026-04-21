@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Target, TrendingUp, Award, Clock } from 'lucide-react';
-import { AILogEntry } from '../../lib/types';
+import { AILogEntry } from '@/lib/types.ts';
 
 export default function ScoreCard() {
   const [isExpanded, setIsExpanded] = useState(false);

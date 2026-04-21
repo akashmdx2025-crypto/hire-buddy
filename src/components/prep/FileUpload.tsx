@@ -3,9 +3,9 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Upload, FileUp, Clipboard, Loader2, CheckCircle2 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/button.tsx';
 import { toast } from 'sonner';
-import { JDAnalysis } from '../../lib/types';
+import { JDAnalysis } from '@/lib/types.ts';
 
 interface FileUploadProps {
   onSuccess: (analysis: JDAnalysis) => void;

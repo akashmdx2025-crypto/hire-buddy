@@ -1,4 +1,5 @@
 // source_handbook: week11-hackathon-preparation
+console.log('--- SERVER STARTING ---');
 
 import dotenv from 'dotenv';
 dotenv.config({ override: true });
@@ -7,7 +8,9 @@ import { createServer as createViteServer } from 'vite';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import fs from 'fs';
-import { PDFParse } from 'pdf-parse';
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const PDFParse = require('pdf-parse');
 import { GoogleGenAI, Type } from '@google/genai';
 import { chunkDocument } from './src/lib/chunker.js';
 import { vectorStore } from './src/lib/vectorstore.js';
@@ -28,19 +31,23 @@ if (!apiKey) {
 }
 
 const ai = new GoogleGenAI({ apiKey });
-const DEFAULT_MODEL = "gemini-3-flash-preview";
-const EMBEDDING_MODEL = "gemini-embedding-2-preview";
+const DEFAULT_MODEL = "gemini-2.0-flash";
+const EMBEDDING_MODEL = "text-embedding-004";
 
 // Global state for simplicity in hackathon demo
 let currentJDText = "";
 let currentJDAnalysis: JDAnalysis | null = null;
 
 async function startServer() {
-  const app = express();
-  app.use(express.json({ limit: '10mb' }));
-  const PORT = 3000;
+  try {
+    const app = express();
+    app.use(express.json({ limit: '10mb' }));
+    const PORT = 3000;
+    
+    // ... paths check ...
+    console.log('--- INITIALIZING VITE ---');
 
-  // Helper for embeddings
+    // API Routes ...
   const getEmbedding = async (text: string) => {
     const result = await ai.models.embedContent({
       model: EMBEDDING_MODEL,
@@ -71,8 +78,7 @@ async function startServer() {
       // If frontend sends base64 PDF:
       if (type === 'application/pdf') {
         const buffer = Buffer.from(text, 'base64');
-        const parser = new PDFParse({ data: buffer });
-        const result = await parser.getText();
+        const result = await PDFParse(buffer);
         rawText = result.text;
       }
 
@@ -372,7 +378,7 @@ async function startServer() {
   } else {
     const distPath = path.join(process.cwd(), 'dist');
     app.use(express.static(distPath));
-    app.get('*all', (req, res) => {
+    app.get('*', (req, res) => {
       res.sendFile(path.join(distPath, 'index.html'));
     });
   }
@@ -380,6 +386,10 @@ async function startServer() {
   app.listen(PORT, "0.0.0.0", () => {
     console.log(`Server running on http://localhost:${PORT}`);
   });
+  } catch (error) {
+    console.error('--- FATAL SERVER ERROR ---');
+    console.error(error);
+  }
 }
 
 startServer();

@@ -3,14 +3,14 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, FileText, LayoutDashboard, MessageSquare, ListTodo, History, Info } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/button.tsx';
 import FileUpload from './FileUpload';
 import JDViewer from './JDViewer';
 import QuestionPanel from './QuestionPanel';
 import CoachChat from './CoachChat';
 import AILogPanel from './AILogPanel';
 import ScoreCard from './ScoreCard';
-import { JDAnalysis } from '../../lib/types';
+import { JDAnalysis } from '@/lib/types.ts';
 
 interface PrepWorkspaceProps {
   onBack: () => void;

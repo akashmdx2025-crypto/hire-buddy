@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { AILogEntry } from '../../lib/types';
+import { AILogEntry } from '@/lib/types.ts';
 import { History, Activity, Zap, ShieldCheck, ShieldAlert, ChevronDown, ChevronUp, Server } from 'lucide-react';
 
 const LOG_POLL_INTERVAL = 5000;

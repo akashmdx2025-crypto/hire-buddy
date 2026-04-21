@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { JDAnalysis } from '../../lib/types';
-import { Badge } from '@/components/ui/badge';
+import { JDAnalysis } from '@/lib/types.ts';
+import { Badge } from '@/components/ui/badge.tsx';
 import { Star, Briefcase, Code, GraduationCap } from 'lucide-react';
 
 export default function JDViewer({ analysis }: { analysis: JDAnalysis }) {

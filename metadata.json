@@ -1,6 +1,6 @@
 {
-  "name": "HireReady AI",
-  "description": "AI-powered interview preparation coach that analyzes job descriptions and helps candidates prepare with tailored questions, real-time evaluation, and RAG-powered feedback.",
+  "name": "HIRE_READY_OS",
+  "description": "HIGH_INTENSITY_DIAGNOSTIC_TERMINAL // RAG_POWERED_INTERVIEW_PREPARATION // GROUNDED_COACHING_ENGINE",
   "requestFramePermissions": [],
-  "majorCapabilities": ["AI-powered interview prep", "RAG JD analysis", "Mock interview system"]
+  "majorCapabilities": ["JD_SEMANTIC_ANALYSIS", "RAG_FEEDBACK_LOOP", "TERMINAL_SIMULATION"]
 }
